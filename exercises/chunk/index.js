@@ -10,24 +10,13 @@
 
 function chunk(array, size) {
 	let start = 0;
-	let end = start + size;
-
 	let nest = [];
 
-	if (end > array.length) nest.push(array);
-
-	while (end < array.length + 1) {
-		let temp;
-		temp = array.slice(start, end);
-		nest.push(temp);
-		start = end;
-		end += size;
+	while (start < array.length) {
+		nest.push(array.slice(start, start + size));
+		start += size;
 	}
-
-	let last;
-	let remainder = array.length % size;
-	last = array.slice(start, start + remainder);
-	if (last.length) nest.push(last);
+	
 	return nest;
 }
 
