@@ -7,6 +7,31 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+function vowels(str) {
+	let vowelCount = {
+		'a': 0,
+		'e': 0,
+		'i': 0,
+		'o': 0,
+		'u': 0
+	}
+
+	for (let char of str) {
+		char = char.toLowerCase();
+		if (vowelCount.hasOwnProperty(char)) {
+			vowelCount[char] = vowelCount[char] + 1;
+		}
+	}
+
+	let count = Object.values(vowelCount).reduce((a, b) => {
+		return a + b;
+	});
+
+	return count;
+}
+
+console.log(vowels('Hi There!'))
+console.log(vowels('Why do you ask?'))
+console.log(vowels('Why?'))
 
 module.exports = vowels;
