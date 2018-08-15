@@ -9,12 +9,17 @@
 //   fib(4) === 3
 
 function fib(n) {
-	let series = [0, 1];
-	for (let i= 2; i <= n; i++) {
-		series.push(series[i - 1] + series[i - 2]);
+	// let series = [0, 1];
+	// for (let i= 2; i <= n; i++) {
+	// 	series.push(series[i - 1] + series[i - 2]);
+	// }
+	// // console.log(series);
+	// return series[n];
+	if (n < 2) {
+		return n;
 	}
-	// console.log(series);
-	return series[n];
+
+	return fib(n - 2) + fib(n - 1);
 }
 
 console.log(fib(4));
