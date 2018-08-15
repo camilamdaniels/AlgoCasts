@@ -14,18 +14,6 @@
 //     [12, 13, 14, 5],
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
-function fillColumn(matrix, i, arr) {
-	// let column = [];
-	for (let row = 0; row < matrix.length; row++) {
-		matrix[row][i] = arr[i];
-	}
-	// return column;
-}
-
-function fillRow(matrix, i, arr) {
-	let row = matrix[i];
-	row = arr;
-}
 
 function matrix(n) {
 	let matrix = [];
@@ -71,14 +59,5 @@ function matrix(n) {
 console.log(matrix(2));
 console.log(matrix(3));
 console.log(matrix(4));
-
-// let matrix1 = [[1, 2], [4, 3]];
-// let matrix2 = [[1, 2, 3], [8, 9, 4], [7, 6, 5]]
-// let matrix3 = [[1,   2,  3, 4], [12, 13, 14, 5], [11, 16, 15, 6], [10,  9,  8, 7]]
-
-// console.log(getRow(matrix1, 1));
-// console.log(getRow(matrix3, 2));
-// console.log(getColumn(matrix2, 2));
-// console.log(getColumn(matrix3, 1));
 
 module.exports = matrix;
