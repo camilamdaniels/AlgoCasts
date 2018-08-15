@@ -8,26 +8,28 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-	let vowelCount = {
-		'a': 0,
-		'e': 0,
-		'i': 0,
-		'o': 0,
-		'u': 0
-	}
+	// let vowelCount = {
+	// 	'a': 0,
+	// 	'e': 0,
+	// 	'i': 0,
+	// 	'o': 0,
+	// 	'u': 0
+	// }
 
-	for (let char of str) {
-		char = char.toLowerCase();
-		if (vowelCount.hasOwnProperty(char)) {
-			vowelCount[char] = vowelCount[char] + 1;
-		}
-	}
+	// for (let char of str) {
+	// 	char = char.toLowerCase();
+	// 	if (vowelCount.hasOwnProperty(char)) {
+	// 		vowelCount[char] = vowelCount[char] + 1;
+	// 	}
+	// }
 
-	let count = Object.values(vowelCount).reduce((a, b) => {
-		return a + b;
-	});
+	// let count = Object.values(vowelCount).reduce((a, b) => {
+	// 	return a + b;
+	// });
 
-	return count;
+	// return count;
+	str = str.toLowerCase();
+	return (str.match(/[aeiou]/g)) ? str.match(/[aeiou]/g).length : 0;
 }
 
 console.log(vowels('Hi There!'))
