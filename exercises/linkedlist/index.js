@@ -52,7 +52,7 @@ class LinkedList {
 	}
 
 	removeFirst() {
-		this.head = this.head.next;
+		if (this.head) this.head = this.head.next;
 	}
 
 	removeLast() {
@@ -67,6 +67,44 @@ class LinkedList {
 			prev = currNode;
 			currNode = currNode.next;
 			if (currNode.next === null) prev.next = null;
+		}
+	}
+
+	insertLast(data) {
+		const last = this.getLast();
+
+		if (last) last.next = new Node(data);
+		else this.head = new Node(data);
+	}
+
+	getAt(index) {
+		let currNode = this.head;
+		let count = 0;
+		while (currNode) {
+			if (count === index) return currNode;
+			count++;
+			currNode = currNode.next;
+		}
+		return null;
+	}
+
+	removeAt(index) {
+		if (index === 0) this.removeFirst();
+		else if (index === this.size() - 1) this.removeLast();
+		else if (!this.head) return;
+		else {
+			let node = this.getAt(index - 1);
+			if (node.next) node.next = node.next.next;
+		}	
+	}
+
+	insertAt(data, index) {
+		if (index > this.size()) this.insertLast(data);
+		else if (index === 0) this.insertFirst(data);
+		else {
+			let prev = this.getAt(index - 1);
+			let newNext = prev.next;
+			prev.next = new Node(data, newNext);
 		}
 	}
 }
