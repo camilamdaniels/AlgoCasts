@@ -37,6 +37,27 @@ class Node {
 			currNode.right = new Node(data);
 		}
 	}
+
+	contains(data) {
+		let currNode = this;
+		let currValue = this.data;
+		while (data < currValue) {
+			if (currNode.left) {
+				currNode = currNode.left;
+				currValue = currNode.value;
+			}
+		}
+
+		while(data > currValue) {
+			if (currNode.right) {
+				currNode = currNode.right;
+				currValue = currNode.value;
+			}
+		}
+
+		if (currValue === data) return currNode;
+		else return null;
+	}
 }
 
 module.exports = Node;
