@@ -30,11 +30,30 @@ function selectionSort(arr) {
 }
 
 function mergeSort(arr) {
+	if (arr.length < 2) return arr;
 
+	let middle = Math.floor(arr.length / 2);
+	let left = arr.slice(0, middle);
+	let right = arr.slice(middle, arr.length);
+
+	return merge(mergeSort(left), mergeSort(right));
 }
 
 function merge(left, right) {
+	let merged = [];
 
+	while (left.length && right.length) {
+		if (left[0] < right[0]) merged.push(left.shift());
+		else merged.push(right.shift());
+	}
+
+	while (left.length)
+		merged.push(left.shift());
+
+	while (right.length)
+		merged.push(right.shift());
+
+	return merged;
 }
 
-module.exports = { bubbleSort, selectionSort, mergeSort };
+module.exports = { bubbleSort, selectionSort, mergeSort, merge };
