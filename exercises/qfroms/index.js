@@ -28,14 +28,28 @@ class Queue {
 		while (this.stack1.data.length) {
 			this.stack2.push(this.stack1.pop());
 		}
-		return this.stack2.peek();
+
+		const result = this.stack2.peek();
+
+		while (this.stack2.data.length) {
+			this.stack1.push(this.stack2.pop());
+		}
+
+		return result;
 	}
 
 	remove() {
 		while (this.stack1.data.length) {
 			this.stack2.push(this.stack1.pop());
 		}
-		return this.stack2.pop();
+
+		const result = this.stack2.pop();
+
+		while (this.stack2.data.length) {
+			this.stack1.push(this.stack2.pop());
+		}
+
+		return result;
 	}
 }
 
